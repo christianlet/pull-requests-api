@@ -2,11 +2,11 @@ import { Express } from 'express-serve-static-core'
 import { MongoDb } from '../../clients/mongo-db'
 
 export const update = (app: Express) => {
-    app.put('/pull-requests/:id', async (req, res) => {
+    app.put('/releases/:id', async (req, res) => {
         try {
-            const collection = MongoDb.getCollection('pull-requests')
+            const collection = MongoDb.getCollection('releases')
             const result = await collection.updateOne(
-                { id: parseInt(req.params.id) },
+                { id: req.params.id },
                 { $set: req.body }
             )
 

@@ -3,11 +3,11 @@ import { MongoDb } from '../../clients/mongo-db'
 
 
 export const find = (app: Application) => {
-    app.get('/pull-requests/:id', async (req, res) => {
+    app.get('/users/:id', async (req, res) => {
         const id = parseInt(req.params.id)
 
         try {
-            const collection = MongoDb.getCollection('pull-requests')
+            const collection = MongoDb.getCollection('users')
             const item = await collection.findOne({ id })
 
             res.status(200).json({

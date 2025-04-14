@@ -1,16 +1,15 @@
 import { Express } from 'express-serve-static-core'
 import { MongoDb } from '../../clients/mongo-db'
 
-export const update = (app: Express) => {
-    app.put('/pull-requests/:id', async (req, res) => {
+export const remove = (app: Express) => {
+    app.delete('/users/:id', async (req, res) => {
         try {
-            const collection = MongoDb.getCollection('pull-requests')
-            const result = await collection.updateOne(
-                { id: parseInt(req.params.id) },
-                { $set: req.body }
+            const collection = MongoDb.getCollection('users')
+            const result = await collection.deleteOne(
+                { id: parseInt(req.params.id) }
             )
 
-            if (result.matchedCount === 0) {
+            if (!result.deletedCount) {
                 res.status(404).json({ error: 'Item not found' })
 
                 return
