@@ -1,13 +1,13 @@
 {
   "name": "@christianlet/pull-requests-api",
-  "version": "0.0.1-beta-2",
+  "version": "0.0.1-beta-4",
   "description": "",
   "main": "build/index.js",
   "scripts": {
     "test": "jest --config jest.config.js",
     "build": "rm -rf build/ && tsc",
     "start": "node build/index.js",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "dev": "nodemon --watch '**/*.ts' --exec 'ts-node' server.ts",
     "test:silent": "npm run test -- --silent",
     "test:list": "npm run test:silent -- --verbose",
     "lint": "eslint",
