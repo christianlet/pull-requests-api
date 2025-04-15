@@ -21,3 +21,5 @@ app.listen(PORT, async () => {
     users(app)
     releases(app)
 })
+
+export default app
