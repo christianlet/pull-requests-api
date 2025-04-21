@@ -6,7 +6,7 @@ export const remove = (app: Express) => {
         try {
             const collection = MongoDb.getCollection('pull-requests')
             const result = await collection.deleteOne(
-                { id: parseInt(req.params.id) }
+                { node_id: req.params.id }
             )
 
             if (!result.deletedCount) {

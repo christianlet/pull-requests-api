@@ -9,7 +9,6 @@ export default tseslint.config(
         rules: {
             semi: ['error', 'never'],
             quotes: ['error', 'single'],
-            camelcase: ['error', { 'properties': 'always' }],
             'comma-dangle': ['error', 'never'],
             '@typescript-eslint/no-explicit-any': 'error',
             'indent': ['error', 4],

@@ -6,7 +6,7 @@ export const update = (app: Express) => {
         try {
             const collection = MongoDb.getCollection('pull-requests')
             const result = await collection.updateOne(
-                { id: parseInt(req.params.id) },
+                { node_id: req.params.id },
                 { $set: req.body }
             )
 
