@@ -1,7 +1,7 @@
 import { RestEndpointMethodTypes } from '@octokit/plugin-rest-endpoint-methods'
 import { Collection } from 'mongodb'
 
-export type Collections = 'pull-requests' | 'users' | 'releases'
+export type Collections = 'pull-requests' | 'users' | 'releases' | 'teams'
 
 export type PullRequest = RestEndpointMethodTypes['pulls']['get']['response']['data']
 
@@ -31,10 +31,20 @@ export interface Release {
     version: string
 }
 
+export interface Team {
+    id: string
+    label: string
+    color?: string
+    icon?: string
+}
+
 export type CustomCollection<Name extends Collections> = Collection<
     Name extends 'pull-requests'
         ? PullRequestFull
         : Name extends 'users'
             ? User
-            : Release
+            : Name extends 'release'
+                ? Release
+                : Team
+
 >

@@ -3,6 +3,7 @@ import cors from 'cors'
 import pullRequest from './routes/pull-requests'
 import users from './routes/users'
 import releases from './routes/releases'
+import teams from './routes/teams'
 
 const app = express()
 
@@ -14,5 +15,6 @@ app.use(cors())
 pullRequest(app)
 users(app)
 releases(app)
+teams(app)
 
 export default app
